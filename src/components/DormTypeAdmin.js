@@ -89,45 +89,60 @@ const DormType = () => {
                 {dormDesc} <br />
             </div>
         </div>
-            
 
-            <h1>Dorm Type Edit</h1>
+        <table border={1}>
+                    <thead>
+                    <h1>Dorm Type Edit</h1>
+                        <tr>
+                            <th>
+                            <h5>Upload Dorm Image:</h5>
+                            </th>
+                            <th>
+                            <h5>Upload Dorm Room Image:</h5>
+                            </th>
+                            <th>
+                            <h5>Dorm Type:</h5>
+                            </th>
+                            <th>
+                            <h5>Dorm Capacity:</h5>
+                            </th>
+                            <th>
+                            <h5>Dorm Description:</h5>
+                            </th>
+                        </tr>
+                        
+                    </thead>
+                    <tbody>
                     {
-                        dormT.map( (val) =>{
+                        dormT.map( (val) => {
                             return(
-                                
-                            <div className="container my-3 py-3">
-                                <div className="row">
-                                    <div className="col-4">
-                                       <h5>Dorm Image</h5>
-                                        <img src={`images/${val.dorm_room_image}`} alt="Image" width={350} height={250} />
-                                        
-                                    </div>
-                                    <div className="col-8">
-                                        <p>
-                                            <h5>Upload Dorm Room Image:</h5>
+                                        <tr>
+                                            <td>
+                                            <img src={`images/${val.dorm_room_image}`} alt="Image" width={100} height={100} />
+                                            </td>
                                             <input type="file" accept="img/*" onChange={(e) => setDormImage(e.target.files[0])} id={"dorm_room_image_"+ val.dorm_room_ID} />
-                                        <br />
-                                            <h5>Dorm Type:</h5>
+                                            <td>
                                             <input type="text" defaultValue={val.dorm_type} id={"dorm_type_"+ val.dorm_room_ID}/>
-                                        <br />
-                                            <h5>Dorm Capacity:</h5>
-                                            <input type="text" defaultValue={val.dorm_capacity} id={"dorm_capacity_"+ val.dorm_room_ID}/>  
-                                        <br />
-                                            <h5>Dorm Description:</h5>
+                                            </td>
+                                            <td>
+                                            <input type="text" defaultValue={val.dorm_capacity} id={"dorm_capacity_"+ val.dorm_room_ID}/> 
+                                            </td>
+                                            <td>
                                             <input type="text" defaultValue={val.dorm_description} id={"dorm_description_"+ val.dorm_room_ID}/>
-                                        </p>
-                                        <button id={val.dorm_room_ID} onClick={updateDorm}>UPDATE</button>
-                                        <button id={val.dorm_room_ID} onClick={deleteDorm}>DELETE</button>
-                                        <hr />
-                                    </div>
-
-                                </div>
-                            </div>
+                                            </td>
+                                            <td>
+                                            <button id={val.dorm_room_ID} onClick={updateDorm}>UPDATE</button>
+                                            </td>
+                                            <td>
+                                            <button id={val.dorm_room_ID} onClick={deleteDorm}>DELETE</button>
+                                            </td>
+                                        </tr>
                                 );
                             }
                         )
                     }
+                </tbody>
+                </table>
         </>
      );
 }

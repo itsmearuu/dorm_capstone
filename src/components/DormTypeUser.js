@@ -6,7 +6,7 @@ const DormTypeUser = () => {
 
     useEffect(
         () => {
-            let url = "http://localhost/dorm-capstone/react-db-dormtype.php"
+            let url = "http://localhost/dorm_capstone/dorm-app-capstone/src/dbphp/dorm-type-db.php"
             axios.get(url).then(
                 (response) => {
                     setDormTypeUserShow(response.data);
